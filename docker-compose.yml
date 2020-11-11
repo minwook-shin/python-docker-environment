@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  python:
+    image: docker.pkg.github.com/minwook-shin/python-docker-environment/python:3.9.0
+    build:
+      context: .
+      args:
+        TIMEZONE: Asia/Seoul
+        PYTHON_VERSION: "3.9.0"
+        PYTHON_PACKAGE: ""
+    restart: always

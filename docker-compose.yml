@@ -18,8 +18,8 @@ services:
       args:
         TIMEZONE: Asia/Seoul
         PYTHON_VERSION: "3.9.0"
-        PYTHON_PACKAGE: "jupyterlab"
-        DEBIAN_PACKAGE: "nodejs npm"
+        PYTHON_PACKAGE: "jupyterlab jupyterlab-git"
+        DEBIAN_PACKAGE: "git nodejs npm"
         EXPOSE: 8888
     ports:
     - 8888:8888

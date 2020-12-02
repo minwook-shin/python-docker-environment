@@ -22,4 +22,10 @@ RUN if [ "${DEBIAN_PACKAGE}" != "" ] ; \
 ARG EXPOSE
 EXPOSE ${EXPOSE}
 VOLUME /data
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+RUN jupyter labextension install @jupyterlab/git --no-build && \
+    jupyter labextension install @jupyterlab/github --no-build && \
+    jupyter lab build --dev-build=False --minimize=False && \
+        jupyter lab clean && \
+        npm cache clean --force
 CMD ["jupyter", "lab", "--ip=*", "--port=8888", "--no-browser", "--notebook-dir=/data", "--allow-root"]

@@ -1,23 +1,21 @@
 version: '3.8'
 services:
   python:
-    image: docker.pkg.github.com/minwook-shin/python-docker-environment/python:3.9.0
     build:
       context: .
       args:
         TIMEZONE: Asia/Seoul
-        PYTHON_VERSION: "3.9.0"
+        PYTHON_VERSION: "3.13.9"
         PYTHON_PACKAGE: ""
     restart: always
 
   jupyterlab:
-    image: docker.pkg.github.com/minwook-shin/python-docker-environment/python-jupyterlab:3.9.0
     build:
       context: .
       dockerfile: jupyter.Dockerfile
       args:
         TIMEZONE: Asia/Seoul
-        PYTHON_VERSION: "3.9.0"
+        PYTHON_VERSION: "3.13.9"
         PYTHON_PACKAGE: "jupyterlab jupyterlab-git"
         DEBIAN_PACKAGE: "git nodejs npm"
         EXPOSE: 8888
